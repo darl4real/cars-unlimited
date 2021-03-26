@@ -3,7 +3,7 @@ az pipelines create --name 'cars-Ulilmited Build' --description 'Pipeline for ca
 --repository https://github.com/darl4real/cars-unlimited --branch master --yml-path azure-pipelines.yml [--service-connection SERVICE_CONNECTION]
 - stage: Build
   displayName: Build stage
-  jobs:  
+  jobs:  Deploy
   - job: Build
     displayName: Build
     - task: NodeTool@0
@@ -14,6 +14,7 @@ az pipelines create --name 'cars-Ulilmited Build' --description 'Pipeline for ca
         npm install
         npm run build --if-present
         npm run test --if-present
+        
       displayName: 'npm install, build and test'
     - task: ArchiveFiles@2
       displayName: 'Archive files'
