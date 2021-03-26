@@ -1,0 +1,19 @@
+FROM alpine:latest
+RUN apk add --no-cache nodejs npm
+
+
+WORKDIR /cars_unlimited
+
+
+COPY . /cars_unlimited
+
+
+RUN npm install
+
+
+EXPOSE 3000
+
+
+ENTRYPOINT ["node"]
+
+CMD ["server.js"]
